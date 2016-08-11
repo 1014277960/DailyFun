@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -72,15 +73,37 @@ public class ZoomImageView extends View {
 
     private float moveDisY;
 
+    private GestureDetector detector;
+
+    private OnSingleTapUpListener listener;
+
+    // 单击的接口
+    public interface OnSingleTapUpListener {
+        public void onSingleTapUp();
+    }
+
     public ZoomImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setClickable(true);
+        // 使用onSingleTabUp而不是onClick，因为我们需要的是快速的点击事件
+        detector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                listener.onSingleTapUp();
+                return super.onSingleTapUp(e);
+            }
+        });
         init();
     }
 
-    private void init() {
+    public void setSingleTabUpListener(OnSingleTapUpListener l) {
+        listener = l;
+    }
+
+    prgiivate void init() {
         matrix = new Matrix();
         currentState = STATUS_INIT;
+        invalidate();
     }
 
     public void setImageBitmap(Bitmap bitmap) {
@@ -100,7 +123,8 @@ public class ZoomImageView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        super.onTouchEvent(event);
+        //super.onTouchEvent(event);
+        detector.onTouchEvent(event);
         // 锁定事件，不允许父控件拦截
         boolean result = true;
         getParent().requestDisallowInterceptTouchEvent(true);

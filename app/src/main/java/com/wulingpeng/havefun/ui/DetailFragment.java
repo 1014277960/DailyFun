@@ -20,7 +20,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by wulinpeng on 16/8/11.
  */
-public class DetailFragment extends Fragment {
+public class DetailFragment extends Fragment implements ZoomImageView.OnSingleTapUpListener {
 
     private String url;
 
@@ -41,12 +41,7 @@ public class DetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         imageView = (ZoomImageView) view.findViewById(R.id.image);
         // 单击退出浏览
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().finish();
-            }
-        });
+        imageView.setSingleTabUpListener(this);
         // 得到图片后回调设置图片
         Glide.with(this).load(url).asBitmap().into(new SimpleTarget<Bitmap>() {
             @Override
@@ -60,5 +55,10 @@ public class DetailFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onSingleTapUp() {
+        getActivity().finish();
     }
 }
