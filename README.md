@@ -15,9 +15,9 @@ A MaterialDesign Android project width MVP architecture
 
 ## 参考的资料
 
- - http://blog.csdn.net/guolin_blog/article/details/11100327
-郭神的多点触控文章，本项目中的ZoomImageView大多参考这个，有一些小修改和改进
- - https://github.com/DanteAndroid/Knowledge
+ - http://blog.csdn.net/guolin_blog/article/details/11100327  
+ 郭神的多点触控文章，本项目中的ZoomImageView大多参考这个，有一些小修改和改进
+ - https://github.com/DanteAndroid/Knowledge  
  本项目开始是照着这个项目仿写的，后来的MVP架构是自己完成
  - ......
 
