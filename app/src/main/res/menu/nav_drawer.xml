@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_knowledge"
+            android:title="knowledge"/>
+        <item
+            android:id="@+id/nav_beauty"
+            android:title="beauty"/>
+    </group>
+
+    <item android:title="应用">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="分享"/>
+            <item
+                android:id="@+id/nav_setting"
+                android:title="设置"/>
+        </menu>
+    </item>
+
+</menu>
