@@ -74,6 +74,7 @@ public class ZoomImageView extends View {
 
     public ZoomImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setClickable(true);
         init();
     }
 
@@ -99,6 +100,7 @@ public class ZoomImageView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        super.onTouchEvent(event);
         // 锁定事件，不允许父控件拦截
         boolean result = true;
         getParent().requestDisallowInterceptTouchEvent(true);
@@ -249,6 +251,7 @@ public class ZoomImageView extends View {
         currentBitmapHeight = (int) (sourceBitmap.getHeight() * totalRatio);
         canvas.drawBitmap(sourceBitmap, matrix, null);
     }
+
 }
 
 

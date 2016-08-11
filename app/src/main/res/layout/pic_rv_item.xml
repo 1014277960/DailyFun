@@ -6,6 +6,7 @@
 
     <com.wulingpeng.havefun.ui.RatioImageView
         android:id="@+id/image"
+        android:transitionName="image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

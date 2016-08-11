@@ -40,6 +40,13 @@ public class DetailFragment extends Fragment {
         url = getArguments().getString("url");
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         imageView = (ZoomImageView) view.findViewById(R.id.image);
+        // 单击退出浏览
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
         // 得到图片后回调设置图片
         Glide.with(this).load(url).asBitmap().into(new SimpleTarget<Bitmap>() {
             @Override
