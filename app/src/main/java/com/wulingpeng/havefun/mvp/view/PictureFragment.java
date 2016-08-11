@@ -1,5 +1,6 @@
 package com.wulingpeng.havefun.mvp.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.view.menu.MenuView;
@@ -15,7 +16,9 @@ import com.wulingpeng.havefun.mvp.model.Douban;
 import com.wulingpeng.havefun.mvp.model.Gank;
 import com.wulingpeng.havefun.mvp.presenter.PicturePresenter;
 import com.wulingpeng.havefun.net.API;
+import com.wulingpeng.havefun.ui.DetailActivity;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +28,7 @@ import io.realm.RealmObject;
 /**
  * MVP中代表View
  */
-public class PictureFragment extends RecyclerFragment implements PictureViewInterface {
+public class PictureFragment extends RecyclerFragment implements PictureViewInterface, PictureListAdapter.OnItemClickListener {
 
     public static final int TYPE_GANK = 0;
 
@@ -74,7 +77,7 @@ public class PictureFragment extends RecyclerFragment implements PictureViewInte
         mPresenter = new PicturePresenter(this);
         mData = new ArrayList<>();
 
-        mAdapter = new PictureListAdapter(getContext(), mData);
+        mAdapter = new PictureListAdapter(getContext(), mData, this);
         final StaggeredGridLayoutManager lm = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(lm);
         recyclerView.setAdapter(mAdapter);
@@ -171,6 +174,23 @@ public class PictureFragment extends RecyclerFragment implements PictureViewInte
                 refreshLayout.setRefreshing(false);
             }
         }
-        Log.d("Debug", mAdapter.getItemCount() + " " + page);
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Intent intent = new Intent(getActivity(), DetailActivity.class);
+        ArrayList<String> list = new ArrayList<>();
+        if (type == TYPE_GANK) {
+            for (Gank gank : (List<Gank>)mData) {
+                list.add(gank.getUrl());
+            }
+        } else {
+            for (Douban douban : (List<Douban>)mData) {
+                list.add(douban.getUrl());
+            }
+        }
+        intent.putStringArrayListExtra("urls", list);
+        intent.putExtra("index", position);
+        getActivity().startActivity(intent);
     }
 }

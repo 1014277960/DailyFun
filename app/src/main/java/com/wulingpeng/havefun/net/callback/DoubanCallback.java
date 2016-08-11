@@ -65,7 +65,6 @@ public class DoubanCallback extends Callback<List<Douban>> {
         elements = document.select("div[class=bottombar] > span[class=fr p5 meta] > span[class=starcount]");
         for (int i = 0; i != elements.size(); i++) {
             result.get(i).setId(elements.get(i).attr("topic-image-id"));
-            Log.d("Debug", elements.get(i).attr("topic-image-id"));
         }
 
         return result;

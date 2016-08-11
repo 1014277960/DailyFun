@@ -20,6 +20,7 @@
         <activity
             android:label="About"
             android:name=".ui.AboutActivity" />
+        <activity android:name=".ui.DetailActivity" />
     </application>
 
 </manifest>

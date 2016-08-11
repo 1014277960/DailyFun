@@ -31,10 +31,17 @@ public class PictureListAdapter extends RecyclerView.Adapter<PictureListAdapter.
 
     private List<? extends RealmObject> data;
 
-    public PictureListAdapter(Context context, List<? extends RealmObject> data) {
+    private OnItemClickListener mClickListener;
+
+    public interface OnItemClickListener {
+        public void onItemClick(View view, int position);
+    }
+
+    public PictureListAdapter(Context context, List<? extends RealmObject> data, OnItemClickListener listener) {
         this.context = context;
         this.data = data;
         inflater = LayoutInflater.from(context);
+        this.mClickListener = listener;
     }
 
     @Override
@@ -73,6 +80,12 @@ public class PictureListAdapter extends RecyclerView.Adapter<PictureListAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mClickListener.onItemClick(v, getLayoutPosition());
+                }
+            });
         }
     }
 }
