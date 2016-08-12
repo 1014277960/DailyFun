@@ -20,8 +20,8 @@ A MaterialDesign Android project width MVP architecture
 - ......
 	
 ## 用到的开源项目
-compile 'com.github.bumptech.glide:glide:3.7.0'
-compile 'com.zhy:okhttputils:2.2.0'
-compile 'io.realm:realm-android:0.87.4'
-compile 'com.jakewharton:butterknife:8.2.1'
-compile 'org.jsoup:jsoup:1.8.3'
+  compile 'com.github.bumptech.glide:glide:3.7.0'  
+  compile 'com.zhy:okhttputils:2.2.0'  
+  compile 'io.realm:realm-android:0.87.4'  
+  compile 'com.jakewharton:butterknife:8.2.1'  
+  compile 'org.jsoup:jsoup:1.8.3'  
