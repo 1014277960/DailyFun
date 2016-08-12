@@ -25,7 +25,9 @@ public class TabFragment extends BaseFragment {
 
     public static final int TYPE_BEAUTY = 1;
 
-    public static final String[] titles = new String[] {"Gank", "Breast", "Butt", "Leg", "Rank", "Silk"};
+    public static final String[] beautyTitles = new String[] {"Gank", "Breast", "Butt", "Leg", "Rank", "Silk"};
+
+    public static final String[] knowledgeTitles = new String[] {"Zhihu", "Test"};
 
     @BindView(R.id.tabs)
     public TabLayout tabs;
@@ -63,7 +65,8 @@ public class TabFragment extends BaseFragment {
             fragments.add(PictureFragment.newInstance(PictureFragment.TYPE_RANK));
             fragments.add(PictureFragment.newInstance(PictureFragment.TYPE_SILK));
         } else {
-
+            fragments.add(ZhihuFragment.newInstance());
+            fragments.add(ZhihuFragment.newInstance());
         }
         viewPager.setAdapter(new TabAdapter(getChildFragmentManager()));
         tabs.setupWithViewPager(viewPager);
@@ -103,7 +106,11 @@ public class TabFragment extends BaseFragment {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return titles[position];
+            if (type == TYPE_BEAUTY) {
+                return beautyTitles[position];
+            } else {
+                return knowledgeTitles[position];
+            }
         }
     }
 

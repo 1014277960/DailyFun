@@ -100,7 +100,7 @@ public class ZoomImageView extends View {
         listener = l;
     }
 
-    prgiivate void init() {
+    private void init() {
         matrix = new Matrix();
         currentState = STATUS_INIT;
         invalidate();

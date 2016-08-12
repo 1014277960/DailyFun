@@ -2,6 +2,7 @@ package com.wulingpeng.havefun.utils;
 
 import com.wulingpeng.havefun.mvp.model.Douban;
 import com.wulingpeng.havefun.mvp.model.Gank;
+import com.wulingpeng.havefun.mvp.model.Zhihu;
 
 import java.util.List;
 
@@ -44,6 +45,28 @@ public class DBUtil {
         RealmResults<Douban> results = realm.where(Douban.class).equalTo("type", type).findAllSorted("id", Sort.DESCENDING);
         //RealmResults<Douban> results = realm.where(Douban.class).findAllSorted("id", Sort.DESCENDING);
         data.addAll(results);
+    }
+
+    public static void saveZhihus(Realm realm, List<Zhihu> data) {
+        realm.beginTransaction();
+        for (Zhihu zhihu : data) {
+            realm.copyToRealmOrUpdate(zhihu);
+        }
+        realm.commitTransaction();
+    }
+
+    public static RealmResults<Zhihu> getZhihus(Realm realm, String date) {
+        RealmResults<Zhihu> results = realm.where(Zhihu.class).equalTo("date", date).findAllSorted("id", Sort.DESCENDING);
+        return results;
+    }
+
+    public static void deleteZhihus(Realm realm) {
+        realm.beginTransaction();
+        RealmResults<Zhihu> results = realm.where(Zhihu.class).findAll();
+        for (int i = 0; i != results.size(); i++) {
+            results.remove(0);
+        }
+        realm.commitTransaction();
     }
 
 }

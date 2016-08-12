@@ -47,8 +47,6 @@ public class PictureFragment extends RecyclerFragment implements PictureViewInte
 
     public static final int GANK_COUNT = 5;
 
-    public static final int BEAUTY_COUNT = 20;
-
     private int page = 1;
 
     public int type;

@@ -28,7 +28,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @BindView(R.id.drawer_layout)
     public DrawerLayout mDrawer;
 
-    private TabFragment tabFragment;
+    private TabFragment knowledgeTabFragment;
+
+    private TabFragment picTabFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     private void initFragment() {
-        tabFragment = TabFragment.newInstance(TabFragment.TYPE_BEAUTY);
-        replaceFragment(tabFragment);
+        knowledgeTabFragment = TabFragment.newInstance(TabFragment.TYPE_KNOWLEDGE);
+        picTabFragment = TabFragment.newInstance(TabFragment.TYPE_BEAUTY);
+        replaceFragment(knowledgeTabFragment);
     }
 
     @Override
@@ -83,7 +86,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-
+            case R.id.nav_knowledge:
+                replaceFragment(knowledgeTabFragment);
+                break;
+            case R.id.nav_beauty:
+                replaceFragment(picTabFragment);
+                break;
         }
         mDrawer.closeDrawer(GravityCompat.START);
         return true;
