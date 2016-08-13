@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DailyFun</string>
+    <string name="about">可以浏览妹子美图、查看知乎日报当天新闻和每日Android干货资源\n本项目源码已开源,github地址:\n
+        https://github.com/1014277960/DailyFun\n
+        By:西电吴同学
+    </string>
 </resources>

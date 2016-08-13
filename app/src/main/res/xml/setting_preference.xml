@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Cache" >
+
+        <Preference
+            android:key="clearCache"
+            android:title="Clear cache"
+            android:summary="Current cache is "/>
+
+    </PreferenceCategory>
+</PreferenceScreen>

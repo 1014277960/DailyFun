@@ -1,5 +1,6 @@
 package com.wulingpeng.havefun.utils;
 
+import com.wulingpeng.havefun.mvp.model.Android;
 import com.wulingpeng.havefun.mvp.model.Douban;
 import com.wulingpeng.havefun.mvp.model.Gank;
 import com.wulingpeng.havefun.mvp.model.Zhihu;
@@ -10,9 +11,6 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
-/**
- * Created by wulinpeng on 16/8/10.
- */
 public class DBUtil {
 
     public static void saveGanks(List<Gank> data, Realm realm) {
@@ -63,10 +61,24 @@ public class DBUtil {
     public static void deleteZhihus(Realm realm) {
         realm.beginTransaction();
         RealmResults<Zhihu> results = realm.where(Zhihu.class).findAll();
-        for (int i = 0; i != results.size(); i++) {
+        int size = results.size();
+        for (int i = 0; i != size; i++) {
             results.remove(0);
         }
         realm.commitTransaction();
+    }
+
+    public static void saveAndroids(Realm realm, List<Android> data) {
+        realm.beginTransaction();
+        for (Android android : data) {
+            realm.copyToRealmOrUpdate(android);
+        }
+        realm.commitTransaction();
+    }
+
+    public static RealmResults<Android> getAndroids(Realm realm) {
+        RealmResults<Android> results = realm.where(Android.class).findAllSorted("createdAt", Sort.DESCENDING);
+        return results;
     }
 
 }

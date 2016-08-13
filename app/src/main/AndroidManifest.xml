@@ -22,6 +22,7 @@
             android:name=".ui.AboutActivity" />
         <activity android:name=".ui.DetailActivity" />
         <activity android:name=".ui.UrlActivity" />
+        <activity android:name=".ui.SettingActivity" />
     </application>
 
 </manifest>

@@ -17,6 +17,7 @@ import com.wulingpeng.havefun.mvp.view.TabFragment;
 import com.wulingpeng.havefun.net.API;
 import com.wulingpeng.havefun.ui.AboutActivity;
 import com.wulingpeng.havefun.ui.BaseActivity;
+import com.wulingpeng.havefun.ui.SettingActivity;
 
 import butterknife.BindView;
 
@@ -91,6 +92,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
             case R.id.nav_beauty:
                 replaceFragment(picTabFragment);
+                break;
+            case R.id.nav_setting:
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent);
                 break;
         }
         mDrawer.closeDrawer(GravityCompat.START);

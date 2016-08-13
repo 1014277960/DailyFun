@@ -27,7 +27,7 @@ public class TabFragment extends BaseFragment {
 
     public static final String[] beautyTitles = new String[] {"Gank", "Breast", "Butt", "Leg", "Rank", "Silk"};
 
-    public static final String[] knowledgeTitles = new String[] {"Zhihu", "Test"};
+    public static final String[] knowledgeTitles = new String[] {"Zhihu", "Android"};
 
     @BindView(R.id.tabs)
     public TabLayout tabs;
@@ -66,9 +66,11 @@ public class TabFragment extends BaseFragment {
             fragments.add(PictureFragment.newInstance(PictureFragment.TYPE_SILK));
         } else {
             fragments.add(ZhihuFragment.newInstance());
-            fragments.add(ZhihuFragment.newInstance());
+            fragments.add(AndroidFragment.newInstance());
         }
         viewPager.setAdapter(new TabAdapter(getChildFragmentManager()));
+        // 不设置会出现很奇怪的情况
+        viewPager.setOffscreenPageLimit(fragments.size() - 1);
         tabs.setupWithViewPager(viewPager);
         tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
