@@ -1,7 +1,7 @@
 # DailyFun
 A MaterialDesign Android project width MVP architecture
 ## 简介
-一款MD风格，MVP架构的app，计划可以浏览妹子图片和知乎日报内容，目前完成妹子图片。
+一款MD风格，MVP架构的app，计划可以浏览妹子图片和知乎日报内容，还有每日android blog。
 
 ## 相关知识
 - Realm数据库的使用
