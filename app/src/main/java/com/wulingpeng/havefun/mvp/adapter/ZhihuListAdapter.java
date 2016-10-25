@@ -152,12 +152,9 @@ public class ZhihuListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         @Override
         public Object instantiateItem(ViewGroup container, final int position) {
-            ImageView view = new ImageView(context);
-            final ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT);
-            view.setLayoutParams(lp);
-            view.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            view.setClickable(true);
+            View view = inflater.inflate(R.layout.zhihu_pager_item, container, false);
+            ImageView imageView = (ImageView) view.findViewById(R.id.image);
+            TextView textView = (TextView) view.findViewById(R.id.title);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -167,7 +164,8 @@ public class ZhihuListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 }
             });
             Glide.with(context).load(header.get(position).getImageUrl())
-                    .diskCacheStrategy(DiskCacheStrategy.ALL).into(view);
+                    .diskCacheStrategy(DiskCacheStrategy.ALL).into(imageView);
+            textView.setText(header.get(position).getTitle());
             container.addView(view);
             return view;
         }

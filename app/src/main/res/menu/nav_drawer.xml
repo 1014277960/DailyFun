@@ -5,20 +5,20 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_knowledge"
-            android:title="knowledge"/>
+            android:title="Knowledge"/>
         <item
             android:id="@+id/nav_beauty"
-            android:title="beauty"/>
+            android:title="Beauty"/>
     </group>
 
-    <item android:title="应用">
+    <item android:title="Application">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:title="分享"/>
+                android:title="Share"/>
             <item
                 android:id="@+id/nav_setting"
-                android:title="设置"/>
+                android:title="Setting"/>
         </menu>
     </item>
 

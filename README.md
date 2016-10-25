@@ -1,7 +1,15 @@
 # DailyFun
 A MaterialDesign Android project width MVP architecture
 ## 简介
-一款MD风格，MVP架构的app，计划可以浏览妹子图片和知乎日报内容，还有每日android blog。
+一款MD风格，MVP架构的app，计划可以浏览妹子图片和知乎日报内容，目前完成妹子图片。
+
+## 界面预览
+![start](/img/start.gif)
+![zhihu](/img/zhihu.gif)
+![android](/img/android.gif)
+![beauty](/img/beauty.gif)
+![setting](/img/setting.gif)
+![about](/img/about.gif)
 
 ## 相关知识
 - Realm数据库的使用
@@ -10,14 +18,13 @@ A MaterialDesign Android project width MVP architecture
 - 使用Glide加载图片
 - MVP模式的用法
 - Design库的使用
-- 设置页面的写法
 - ......
 
 ## 参考的资料
-- http://blog.csdn.net/guolin_blog/article/details/11100327  
-郭神的多点触控文章，本项目中的ZoomImageView大多参考这个，有一些小修改和改进
-- https://github.com/DanteAndroid/Knowledge  
-本项目开始是照着这个项目仿写的，后来的MVP架构是自己完成
+- http://blog.csdn.net/guolin_blog/article/details/11100327
+	郭神的多点触控文章，本项目中的ZoomImageView大多参考这个，有一些小修改和改进
+- https://github.com/DanteAndroid/Knowledge
+	 本项目开始是照着这个项目仿写的，后来的MVP架构是自己完成
 - ......
 	
 ## 用到的开源项目
